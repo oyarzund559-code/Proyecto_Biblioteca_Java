@@ -2,12 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package interfaces;
+package interfaces; //Requisito: package
 
-/**
- *
- * @author Daniel
- */
-public interface Sis_Prestamo {
-    
+import java.io.Serializable;
+//Requisito: interface
+public interface Sis_Prestamo extends Serializable {
+    boolean prestar();
+    boolean devolver();
 }

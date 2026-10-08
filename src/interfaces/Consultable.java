@@ -6,6 +6,6 @@ package interfaces; //Requisito: package
 
 import java.io.Serializable;
 //Requisito: interface
-public interface Consultable {
-    
+public interface Consultable extends Serializable {
+    String obtener 
 }
