@@ -4,10 +4,7 @@
  */
 package controlador;
 
-/**
- *
- * @author Daniel
- */
+
 public class Gestion_Biblioteca {
     
 }
