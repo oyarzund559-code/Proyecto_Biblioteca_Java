@@ -7,5 +7,5 @@ package interfaces; //Requisito: package
 import java.io.Serializable;
 //Requisito: interface
 public interface Consultable extends Serializable {
-    String obtenerFicha();
+    void obtenerFicha();
 }
