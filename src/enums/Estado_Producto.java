@@ -9,5 +9,6 @@ package enums;
  * @author Daniel
  */
 public enum Estado_Producto {
-    
+    Libro_Fisico,
+    Audiovisual,
 }

@@ -9,5 +9,7 @@ package enums;
  * @author Daniel
  */
 public enum Tipo_Producto {
-    
+    Activo,
+    Devuelto,
+    Atrasado,
 }
