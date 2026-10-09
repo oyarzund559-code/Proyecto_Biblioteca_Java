@@ -49,6 +49,7 @@ public class Main {
                     int numeroPaginas = Integer.parseInt(sc.nextLine());
                     gestion.agregarProductos(new Libro(tituloLibro, autorLibro, numeroPaginas));
                     System.out.println("Libro registrado");
+                    System.out.println("");
                     break;
                 case 2:
                     System.out.println("Titulo del DVD: ");
@@ -59,6 +60,7 @@ public class Main {
                     int duracionDVD = Integer.parseInt(sc.nextLine());
                     gestion.agregarProductos(new DVD(tituloDVD, directorDVD, duracionDVD));
                     System.out.println("DVD registrado");
+                    System.out.println("");
                     break;
                 case 3:
                     System.out.println("Nombre del Cliente: ");
@@ -67,30 +69,37 @@ public class Main {
                     String rutCliente = sc.nextLine();
                     gestion.agregarCliente(new Cliente(nombreCliente, rutCliente));
                     System.out.println("Cliente registrado");
+                    System.out.println("");
                     break;
                 case 4:
                     System.out.println("Catalogo: ");
                     gestion.listarProductos();
+                    System.out.println("");
                     break;
                 case 5:
                     System.out.println("Listado Clientes: ");
                     gestion.listarClientes();
+                    System.out.println("");
                     break;
                 case 6:
                     gestion.guardar();
+                    System.out.println("");
                     break;
                 case 7:
                     gestion.cargar();
+                    System.out.println("");
                     break;
                 case 0:
                     gestion.guardar();
+                    System.out.println("");
                     opcion = 0;
                     break;
                 default:
                     System.out.println("La opción no es valida intente nuevamente");
+                    System.out.println("");
                 }
-            sc.close();
             }
+            sc.close();
         }
     }
     
