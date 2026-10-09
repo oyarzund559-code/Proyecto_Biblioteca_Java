@@ -44,6 +44,17 @@ public class Gestion_Biblioteca {
             }
         }
     }
+    
+    public void listarClientes(){
+        if(listaClientes.isEmpty()){
+            System.out.println("No existen productos registrados");
+        }else{
+            for(Producto p: listaProductos){
+                p.obtenerFicha();
+            }
+        }
+    }
+    
    //Requisito: Percistencia
     public void guardar(){
         try{

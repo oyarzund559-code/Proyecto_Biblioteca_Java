@@ -10,8 +10,8 @@ public class Libro extends Producto{
     private String autor;
     private int numeroPaginas;
 
-    public Libro(String autor, int numeroPaginas, String titulo, Tipo_Producto tipo) {
-        super(titulo, tipo.Libro_Fisico);
+    public Libro(String titulo, String autor, int numeroPaginas) {
+        super(titulo, Tipo_Producto.Libro_Fisico);
         this.autor = autor;
         this.numeroPaginas = numeroPaginas;
     }

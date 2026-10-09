@@ -10,8 +10,8 @@ public class DVD extends Producto{
     private int duracion;
     private String director;
 
-    public DVD(int duracion, String director, String titulo, Tipo_Producto tipo) {
-        super(titulo, tipo.Audiovisual);
+    public DVD(String titulo, String director, int duracion) {
+        super(titulo, Tipo_Producto.Audiovisual);
         this.duracion = duracion;
         this.director = director;
     }
