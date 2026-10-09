@@ -7,7 +7,7 @@ package modelo; //Requerimiento: package
 import enums.Tipo_Producto;
 import interfaces.Consultable;
 import interfaces.Sis_Prestamo;
-import java.io.Serializable;
+import java.io.*;
 //Requerimiento: Herencia
 //Requerimiento: Persistencia
 public abstract class Producto implements Consultable, Sis_Prestamo, Serializable{

@@ -4,10 +4,10 @@
  */
 package vista;
 
-/**
- *
- * @author Daniel
- */
+import java.util.Scanner;
+import java.io.*;
+
+//Requisito: Persistencia
 public class Main {
 
     /**
