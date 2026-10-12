@@ -8,6 +8,7 @@ import modelo.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import enums.Estado_Producto;
 public class Gestion_Biblioteca {
     //Requisito: Colecciones
     private ArrayList<Producto> listaProductos;
@@ -27,8 +28,26 @@ public class Gestion_Biblioteca {
         listaProductos.add(producto);
     }
     
-    public void agregarPrestamo(Prestamo prestamo){
-        listaPrestamos.add(prestamo);
+    public void agregarPrestamo(String rut, String id){
+        Cliente cliente = listaClientes.get(rut);
+        if(cliente == null){
+            System.out.println("No existen clientes asociados a este Rut");
+            return;
+        }
+        Producto productoEncontrado = null;
+        for(Producto p: listaProductos){
+            if(p.getId().equalsIgnoreCase(id)){
+                productoEncontrado = p;
+                break;
+            }
+        }
+        if(productoEncontrado == null){
+            System.out.println("Error no se encontro ningun producto asociado a esta id");
+            return;
+        }
+        Prestamo nuevoPrestamo = new Prestamo(cliente, productoEncontrado, Estado_Producto.Activo);
+        listaPrestamos.add(nuevoPrestamo);
+        System.out.println("Se registro correctamente el prestamo");
     }
     
     public void agregarCliente(Cliente cliente){
@@ -52,6 +71,16 @@ public class Gestion_Biblioteca {
             System.out.println("No existen clientes registrados");
         }else{
             for(Cliente p: listaClientes.values()){
+                p.obtenerFicha();
+            }
+        }
+    }
+    
+    public void listarPestamos(){
+        if(listaPrestamos.isEmpty()){
+            System.out.println("No existen prestamos registrados");
+        }else{
+            for(Prestamo p: listaPrestamos){
                 p.obtenerFicha();
             }
         }

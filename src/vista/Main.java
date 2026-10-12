@@ -28,10 +28,12 @@ public class Main {
             System.out.println("1. Agregar Libros");
             System.out.println("2. Agregar DVD");
             System.out.println("3. Agregar Clientes");
-            System.out.println("4. Listar Catalogo Productos");
-            System.out.println("5. Listar Clientes");
-            System.out.println("6. Guardar Estado");
-            System.out.println("7. Cargar Estado");
+            System.out.println("4. Realizar Prestamo");
+            System.out.println("5. Listar Catalogo Productos");
+            System.out.println("6. Listar Clientes");
+            System.out.println("7. Listar Prestamos");
+            System.out.println("8. Guardar Estado");
+            System.out.println("9. Cargar Estado");
             System.out.println("0. Salir");
             System.out.println("Seleccione una de las opciones");
             System.out.println("");
@@ -70,20 +72,32 @@ public class Main {
                     System.out.print("");
                     break;
                 case 4:
+                    System.out.print("Ingresar el Rut del cliente: ");
+                    String rut = sc.nextLine();
+                    System.out.print("Ingrese la ID del Producto(ej: Prod-1): ");
+                    String id = sc.nextLine();
+                    gestion.agregarPrestamo(rut, id);
+                    break;
+                case 5:
                     System.out.println("Catalogo: ");
                     gestion.listarProductos();
                     System.out.println("");
                     break;
-                case 5:
+                case 6:
                     System.out.println("Listado Clientes: ");
                     gestion.listarClientes();
                     System.out.println("");
                     break;
-                case 6:
+                case 7:
+                    System.out.println("Listado de Prestamos");
+                    gestion.listarPestamos();
+                    System.out.println("");
+                    break;
+                case 8:
                     gestion.guardar();
                     System.out.println("");
                     break;
-                case 7:
+                case 9:
                     gestion.cargar();
                     System.out.println("");
                     break;
