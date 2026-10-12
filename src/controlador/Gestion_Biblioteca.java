@@ -33,6 +33,7 @@ public class Gestion_Biblioteca {
     
     public void agregarCliente(Cliente cliente){
         listaClientes.put(cliente.getRut(), cliente);
+        System.out.println("");
     }
     
     public void listarProductos(){
@@ -41,13 +42,14 @@ public class Gestion_Biblioteca {
         }else{
             for(Producto p: listaProductos){
                 p.obtenerFicha();
+                System.out.println("");
             }
         }
     }
     
     public void listarClientes(){
         if(listaClientes.isEmpty()){
-            System.out.println("No existen productos registrados");
+            System.out.println("No existen clientes registrados");
         }else{
             for(Cliente p: listaClientes.values()){
                 p.obtenerFicha();

@@ -23,7 +23,7 @@ public class DVD extends Producto{
      
      @Override
     public void obtenerFicha(){
-         System.out.println("Libro ID:" + id );
+         System.out.println("DVD ID:" + id );
          System.out.println("Titulo: " + titulo);
          System.out.println("Duracion: " + duracion);
          System.out.println("Director: " + director);

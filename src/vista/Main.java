@@ -39,35 +39,35 @@ public class Main {
             int opcion = Integer.parseInt(sc.nextLine());
             switch(opcion){
                 case 1:
-                    System.out.println("Titulo del Libro:");
+                    System.out.print("Titulo del Libro:");
                     String tituloLibro = sc.nextLine();
-                    System.out.println("Autor del Libro:");
+                    System.out.print("Autor del Libro:");
                     String autorLibro = sc.nextLine();
-                    System.out.println("Numero de paginas del libro: ");
+                    System.out.print("Numero de paginas del libro: ");
                     int numeroPaginas = Integer.parseInt(sc.nextLine());
                     gestion.agregarProductos(new Libro(tituloLibro, autorLibro, numeroPaginas));
                     System.out.println("Libro registrado");
                     System.out.println("");
                     break;
                 case 2:
-                    System.out.println("Titulo del DVD: ");
+                    System.out.print("Titulo del DVD: ");
                     String tituloDVD = sc.nextLine();
-                    System.out.println("Director DVD: ");
+                    System.out.print("Director DVD: ");
                     String directorDVD = sc.nextLine();
-                    System.out.println("Duracion en minutos: ");
+                    System.out.print("Duracion en minutos: ");
                     int duracionDVD = Integer.parseInt(sc.nextLine());
                     gestion.agregarProductos(new DVD(tituloDVD, directorDVD, duracionDVD));
                     System.out.println("DVD registrado");
                     System.out.println("");
                     break;
                 case 3:
-                    System.out.println("Nombre del Cliente: ");
+                    System.out.print("Nombre del Cliente: ");
                     String nombreCliente = sc.nextLine();
-                    System.out.println("Rut del cliente: ");
+                    System.out.print("Rut del cliente: ");
                     String rutCliente = sc.nextLine();
                     gestion.agregarCliente(new Cliente(nombreCliente, rutCliente));
                     System.out.println("Cliente registrado");
-                    System.out.println("");
+                    System.out.print("");
                     break;
                 case 4:
                     System.out.println("Catalogo: ");
