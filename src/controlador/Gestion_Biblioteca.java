@@ -49,7 +49,7 @@ public class Gestion_Biblioteca {
         if(listaClientes.isEmpty()){
             System.out.println("No existen productos registrados");
         }else{
-            for(Cliente p: listaClientes){
+            for(Cliente p: listaClientes.values()){
                 p.obtenerFicha();
             }
         }

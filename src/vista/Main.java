@@ -12,9 +12,7 @@ import controlador.Gestion_Biblioteca;
 //Requisito: Persistencia
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
         Gestion_Biblioteca gestion = new Gestion_Biblioteca();
         Scanner sc = new Scanner(System.in);
@@ -22,9 +20,9 @@ public class Main {
         gestion.agregarProductos(new Libro("Don Quijote", "Cervantes", 1000));
         gestion.agregarProductos(new DVD("Cars 2", "John Lasseter", 107));
         gestion.agregarCliente(new Cliente("Guti", "11.544.251-0"));
-        int opcion = 1;
+        int inicioWhile = 1;
         
-        while(opcion == 1){
+        while(inicioWhile == 1){
             System.out.println("");
             System.out.println("Menu");
             System.out.println("1. Agregar Libros");
@@ -38,7 +36,7 @@ public class Main {
             System.out.println("Seleccione una de las opciones");
             System.out.println("");
             
-            opcion = Integer.parseInt(sc.nextLine());
+            int opcion = Integer.parseInt(sc.nextLine());
             switch(opcion){
                 case 1:
                     System.out.println("Titulo del Libro:");
@@ -92,14 +90,14 @@ public class Main {
                 case 0:
                     gestion.guardar();
                     System.out.println("");
-                    opcion = 0;
+                    inicioWhile = 0;
                     break;
                 default:
                     System.out.println("La opción no es valida intente nuevamente");
                     System.out.println("");
                 }
             }
-            sc.close();
+           sc.close();
         }
     }
     
