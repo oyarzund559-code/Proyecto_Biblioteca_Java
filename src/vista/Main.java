@@ -3,6 +3,7 @@ package vista;
 
 import java.util.Scanner;
 import enums.Tipo_Producto;
+import excepciones.*;
 import java.io.*;
 import modelo.*;
 import controlador.Gestion_Biblioteca;
@@ -17,9 +18,9 @@ public class Main {
         gestion.agregarProductos(new Libro("Don Quijote", "Cervantes", 1000));
         gestion.agregarProductos(new DVD("Cars 2", "John Lasseter", 107));
         gestion.agregarCliente(new Cliente("Guti", "11.544.251-0"));
-        int inicioWhile = 1;
+        boolean inicioWhile = true;
         
-        while(inicioWhile == 1){
+        while(inicioWhile == true){
             System.out.println("");
             System.out.println("Menu");
             System.out.println("1. Agregar Libros");
@@ -73,7 +74,12 @@ public class Main {
                     String rut = sc.nextLine();
                     System.out.print("Ingrese la ID del Producto(ej: Prod-1): ");
                     String id = sc.nextLine();
-                    gestion.agregarPrestamo(rut, id);
+                    try{
+                        gestion.agregarPrestamo(rut, id);
+                    }catch(LimitePrestamosExcedidoException | ProductoNoDisponibleException e){
+                        System.out.println("Alerta: " + e.getMessage());
+                    }
+                    System.out.println("");
                     break;
                 case 5:
                     System.out.println("Catalogo: ");
@@ -101,7 +107,7 @@ public class Main {
                 case 0:
                     gestion.guardar();
                     System.out.println("");
-                    inicioWhile = 0;
+                    inicioWhile = false;
                     break;
                 default:
                     System.out.println("La opción no es valida intente nuevamente");
