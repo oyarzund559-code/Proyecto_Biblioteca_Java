@@ -29,5 +29,6 @@ public class Libro extends Producto{
          } else{
              System.out.println("Prestado: No");
          }
+         System.out.println("");
     }
 }

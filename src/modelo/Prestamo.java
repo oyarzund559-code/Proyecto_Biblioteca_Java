@@ -37,5 +37,6 @@ public class Prestamo implements Consultable, Serializable{
         System.out.println("Cliente: " + cliente.getNombre());
         System.out.println("Producto: " + producto.getTitulo());
         System.out.println("Estado del Producto: " + estado);
+        System.out.println("");
     }
 }

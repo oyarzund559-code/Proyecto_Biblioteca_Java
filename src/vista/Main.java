@@ -15,9 +15,6 @@ public class Main {
         Gestion_Biblioteca gestion = new Gestion_Biblioteca();
         Scanner sc = new Scanner(System.in);
         gestion.cargar();
-        gestion.agregarProductos(new Libro("Don Quijote", "Cervantes", 1000));
-        gestion.agregarProductos(new DVD("Cars 2", "John Lasseter", 107));
-        gestion.agregarCliente(new Cliente("Guti", "11.544.251-0"));
         boolean inicioWhile = true;
         
         while(inicioWhile == true){

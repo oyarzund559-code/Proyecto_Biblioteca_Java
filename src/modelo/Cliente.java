@@ -31,7 +31,8 @@ public class Cliente implements Consultable, Serializable{
     public void obtenerFicha(){
         System.out.println("Nombre cliente: " + nombre);
         System.out.println("Rut cliente: " + rut);
-         System.out.println("Prestamos Activos: " + contadorPrestamos);
+        System.out.println("Prestamos Activos: " + contadorPrestamos);
+         System.out.println("");
     }
 
     public int getContadorPrestamos() {
