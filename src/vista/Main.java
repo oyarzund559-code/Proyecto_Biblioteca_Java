@@ -90,7 +90,7 @@ public class Main {
                     break;
                 case 7:
                     System.out.println("Listado de Prestamos");
-                    gestion.listarPestamos();
+                    gestion.listarPrestamos();
                     System.out.println("");
                     break;
                 case 8:

@@ -151,7 +151,7 @@ public class Gestion_Biblioteca {
         }
     }
     
-    public void listarPestamos(){
+    public void listarPrestamos(){
         if(listaPrestamos.isEmpty()){
             System.out.println("No existen prestamos registrados");
         }else{
