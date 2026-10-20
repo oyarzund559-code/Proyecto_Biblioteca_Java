@@ -15,9 +15,9 @@ public class Main {
         Gestion_Biblioteca gestion = new Gestion_Biblioteca();
         Scanner sc = new Scanner(System.in);
         gestion.cargar();
-        boolean inicioWhile = true;
+        int inicioWhile = 1;
         
-        while(inicioWhile == true){
+        while(inicioWhile == 1){
             System.out.println("");
             System.out.println("Menu");
             System.out.println("1. Agregar Libros");
@@ -104,7 +104,7 @@ public class Main {
                 case 0:
                     gestion.guardar();
                     System.out.println("");
-                    inicioWhile = false;
+                    inicioWhile = 0;
                     break;
                 default:
                     System.out.println("La opción no es valida intente nuevamente");
