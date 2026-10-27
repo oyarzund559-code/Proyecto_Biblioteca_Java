@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
         Gestion_Biblioteca gestion = new Gestion_Biblioteca();
         Scanner sc = new Scanner(System.in);
-        gestion.cargar();
         int inicioWhile = 1;
         
         while(inicioWhile == 1){
@@ -24,26 +23,26 @@ public class Main {
             System.out.println("2. Agregar DVD");
             System.out.println("3. Agregar Clientes");
             System.out.println("4. Realizar Prestamo");
-            System.out.println("5. Listar Catalogo Productos");
-            System.out.println("6. Listar Clientes");
-            System.out.println("7. Listar Prestamos");
-            System.out.println("8. Guardar Estado");
-            System.out.println("9. Cargar Estado");
+            System.out.println("5. Registrar Devolucion");
+            System.out.println("6. Listar Catalogo Productos");
+            System.out.println("7. Listar Clientes");
+            System.out.println("8. Listar Prestamos");
             System.out.println("0. Salir");
-            System.out.println("Seleccione una de las opciones");
+            System.out.print("Seleccione una de las opciones: ");
+            int opcion = Integer.parseInt(sc.nextLine());
             System.out.println("");
             
-            int opcion = Integer.parseInt(sc.nextLine());
             switch(opcion){
                 case 1:
-                    System.out.print("Titulo del Libro:");
+                    System.out.print("Titulo del Libro: ");
                     String tituloLibro = sc.nextLine();
-                    System.out.print("Autor del Libro:");
+                    System.out.print("Autor del Libro: ");
                     String autorLibro = sc.nextLine();
                     System.out.print("Numero de paginas del libro: ");
                     int numeroPaginas = Integer.parseInt(sc.nextLine());
-                    gestion.agregarProductos(new Libro(tituloLibro, autorLibro, numeroPaginas));
-                    System.out.println("Libro registrado");
+                    Libro nuevoLibro = new Libro(tituloLibro, autorLibro, numeroPaginas);
+                    gestion.agregarProductos(nuevoLibro);
+                    System.out.println("Libro registrado con un id asociado de: " + nuevoLibro.getId());
                     System.out.println("");
                     break;
                 case 2:
@@ -53,8 +52,9 @@ public class Main {
                     String directorDVD = sc.nextLine();
                     System.out.print("Duracion en minutos: ");
                     int duracionDVD = Integer.parseInt(sc.nextLine());
-                    gestion.agregarProductos(new DVD(tituloDVD, directorDVD, duracionDVD));
-                    System.out.println("DVD registrado");
+                    DVD nuevoDVD = new DVD(tituloDVD, directorDVD, duracionDVD);
+                    gestion.agregarProductos(nuevoDVD);
+                    System.out.println("DVD registrado con un id asociado de: " + nuevoDVD.getId());
                     System.out.println("");
                     break;
                 case 3:
@@ -73,36 +73,39 @@ public class Main {
                     String id = sc.nextLine();
                     try{
                         gestion.agregarPrestamo(rut, id);
+                        System.out.println("Se a realizado correctamente el prestamo");
+                        System.out.println("");
                     }catch(LimitePrestamosExcedidoException | ProductoNoDisponibleException e){
                         System.out.println("Alerta: " + e.getMessage());
                     }
                     System.out.println("");
                     break;
                 case 5:
+                    System.out.print("Ingresar el rut del cliente: ");
+                    String rutD = sc.nextLine();
+                    System.out.print("Ingrese el id del producto a devolver (ej: Prod-1): ");
+                    String idP = sc.nextLine();
+                    gestion.registrarDevolucion(rutD, idP);
+                    System.out.println("");
+                    break;
+                case 6:
                     System.out.println("Catalogo: ");
                     gestion.listarProductos();
                     System.out.println("");
                     break;
-                case 6:
+                case 7:
                     System.out.println("Listado Clientes: ");
                     gestion.listarClientes();
                     System.out.println("");
                     break;
-                case 7:
+                case 8:
                     System.out.println("Listado de Prestamos");
                     gestion.listarPrestamos();
                     System.out.println("");
                     break;
-                case 8:
-                    gestion.guardar();
-                    System.out.println("");
-                    break;
-                case 9:
-                    gestion.cargar();
-                    System.out.println("");
-                    break;
                 case 0:
                     gestion.guardar();
+                    System.out.println("Muchas gracias por usar el programa");
                     System.out.println("");
                     inicioWhile = 0;
                     break;

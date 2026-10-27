@@ -45,6 +45,10 @@ public abstract class Producto implements Consultable, Sis_Prestamo, Serializabl
         }
     }
 
+    public static void setContadorID(int contadorID) {
+        Producto.contadorID = contadorID;
+    }
+    
     public String getTitulo() {
         return titulo;
     }

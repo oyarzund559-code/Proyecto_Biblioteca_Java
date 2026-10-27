@@ -16,15 +16,19 @@ public class Gestion_Biblioteca {
     private static final String ARCHIVO_PRODUCTOS = "productos.dat";
     private static final String ARCHIVO_CLIENTES = "clientes.dat";
     private static final String ARCHIVO_PRESTAMOS = "prestamos.dat";
+    
 
     public Gestion_Biblioteca() {
         this.listaProductos = new ArrayList<>();
         this.listaPrestamos = new ArrayList<>();
         this.listaClientes = new HashMap<>();
         
+        cargar();
+        
         File f = new File(ARCHIVO_PRODUCTOS);
-        if(!f.exists()){
+        if(!f.exists() || listaProductos.isEmpty()){
         cargarDatosPrecargados();
+        guardar();
         }
     }
     
@@ -125,6 +129,29 @@ public class Gestion_Biblioteca {
         listaPrestamos.add(nuevoPrestamo);
     }
     
+    public void registrarDevolucion(String rutCliente, String idProducto){
+        Cliente cliente = listaClientes.get(rutCliente);
+        if(cliente == null){
+            System.out.println("Cliente no encontrado");
+            return;
+        }
+        Prestamo prestamoEncontrado = null;
+        for(Prestamo p: listaPrestamos){
+            if(p.getCliente().getRut().equalsIgnoreCase(rutCliente) && p.getProducto().getId().equalsIgnoreCase(idProducto) && p.getEstado() == Estado_Producto.Activo){
+               prestamoEncontrado = p;
+               break;
+            }
+        }
+        if(prestamoEncontrado == null){
+            System.out.println("No se encontro ningun prestamo activo para este cliente y producto");
+            return;
+        }
+        prestamoEncontrado.getProducto().devolver();
+        cliente.descontarPrestamo();
+        prestamoEncontrado.registrarDevoluciones();
+        System.out.println("Se registro correctamente la devolución");
+    }
+    
     public void agregarCliente(Cliente cliente){
         listaClientes.put(cliente.getRut(), cliente);
         System.out.println("");
@@ -206,6 +233,19 @@ public class Gestion_Biblioteca {
             System.out.println("Los datos se han cargado de manera exitosa");
         }catch(IOException | ClassNotFoundException e){
             System.out.println("Error al cargar los datos: " + e.getMessage());
+        }
+        if(!listaProductos.isEmpty()){
+            int maxID = 0;
+            for(Producto p: listaProductos){
+                try{
+                    String[] partes = p.getId().split("-");
+                    int num = Integer.parseInt(partes[1]);
+                    if(num > maxID){
+                        maxID = num;}           
+                } catch(Exception e){
+                   }
+            }
+            Producto.setContadorID(maxID);
         }
     }
 }

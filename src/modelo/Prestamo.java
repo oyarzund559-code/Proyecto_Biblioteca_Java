@@ -56,7 +56,11 @@ public class Prestamo implements Consultable, Sis_Prestamo, Serializable{
     public void obtenerFicha(){
         System.out.println("Cliente: " + cliente.getNombre());
         System.out.println("Producto: " + producto.getTitulo());
-        System.out.println("Estado del Producto: " + estado);
+        if(this.estado == Estado_Producto.Activo){
+            System.out.println("Estado del Producto: Actualmente se encuentra prestado");
+        }else if(this.estado == Estado_Producto.Devuelto){
+            System.out.println("Estado del Producto: Disponible");
+        }
         System.out.println("");
     }
 }
