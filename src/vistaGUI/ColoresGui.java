@@ -1,5 +1,5 @@
 
-package vista;
+package vistaGUI;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -1,5 +1,5 @@
 
-package vista;
+package vistaGUI;
 
 import controlador.Gestion_Biblioteca;
 import java.awt.*;

@@ -1,5 +1,5 @@
 
-package vista;
+package vistaConsola;
 
 import java.util.Scanner;
 import enums.Tipo_Producto;

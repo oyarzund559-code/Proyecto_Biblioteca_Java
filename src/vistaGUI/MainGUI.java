@@ -1,5 +1,5 @@
 
-package vista;
+package vistaGUI;
 
 import controlador.Gestion_Biblioteca;
 import javax.swing.*;
@@ -9,7 +9,7 @@ public class MainGUI {
         Gestion_Biblioteca gestion = new Gestion_Biblioteca();
         
         SwingUtilities.invokeLater(() -> {
-           new MenuPrincipalGui(gestion).mostrar();
+           new InicioVista(gestion).mostrar();
         });
     }
     
