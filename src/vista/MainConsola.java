@@ -8,7 +8,7 @@ import java.io.*;
 import modelo.*;
 import controlador.Gestion_Biblioteca;
 //Requisito: Persistencia
-public class Main {
+public class MainConsola {
 
    
     public static void main(String[] args) {
