@@ -28,7 +28,7 @@ public class InicioVista extends BaseFrame {
         panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 40, 15, 40));
         panelBotones.setBackground(ColoresGui.colorFondo);
         
-        JButton btnCatalogo = crearBoton("Catalogo y Listados");
+        JButton btnCatalogo = crearBoton("Historial de Catalogo, Clientes y Prestamos");
         JButton btnRegistrar = crearBoton("Registrar Productos");
         JButton btnPrestamos = crearBoton("Prestamos y Devoluciones");
         JButton btnSalir = crearBoton("Guardar y Salir");

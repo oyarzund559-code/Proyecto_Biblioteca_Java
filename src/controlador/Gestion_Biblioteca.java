@@ -200,6 +200,18 @@ public class Gestion_Biblioteca {
         return listaClientes;
     }
     
+    public boolean eliminarProducto(String id){
+        for (int i = 0; i < listaProductos.size(); i++){
+            Producto p = listaProductos.get(i);
+            if(p.getId().equalsIgnoreCase(id)){
+                if(p.isPrestado()){
+                    return false;
+                }
+           listaProductos.remove(i);
+           return true;
+            }
+        } return false;
+    }
     
    //Requisito: Percistencia
     public void guardar(){
