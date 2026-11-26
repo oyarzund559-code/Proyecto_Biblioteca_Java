@@ -187,6 +187,14 @@ public class Gestion_Biblioteca {
             }
         }
     }
+
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public ArrayList<Prestamo> getListaPrestamos() {
+        return listaPrestamos;
+    }
     
    //Requisito: Percistencia
     public void guardar(){
@@ -245,7 +253,7 @@ public class Gestion_Biblioteca {
                 } catch(Exception e){
                    }
             }
-            Producto.setContadorID(maxID);
+            Producto.setContadorID(maxID + 1);
         }
     }
 }

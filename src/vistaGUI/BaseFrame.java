@@ -2,8 +2,7 @@
 package vistaGUI;
 
 import controlador.Gestion_Biblioteca;
-import java.awt.*;
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public abstract class BaseFrame extends JFrame {
     protected Gestion_Biblioteca gestion;

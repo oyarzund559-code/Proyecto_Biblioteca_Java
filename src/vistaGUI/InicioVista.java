@@ -9,28 +9,42 @@ public class InicioVista extends BaseFrame {
 
     public InicioVista(Gestion_Biblioteca gestion) {
         super("Sistema de Gestión Biblioteca", gestion);
+    }
+      
+    @Override
+    public void mostrar(){
         setSize(450, 320);
         setResizable(false);
-        inicializarComponentes();
-    }
-    
-    private void inicializarComponentes(){
         setLayout(new BorderLayout(10, 10));
+        getContentPane().removeAll();
         
         JLabel lblTitulo = new JLabel("Gestion de Biblioteca", SwingConstants.CENTER);
         lblTitulo.setFont(ColoresGui.fuenteTitulo);
         lblTitulo.setForeground(ColoresGui.colorPrimario);
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(10, 40, 15, 40));
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(15, 20, 10, 20));
         add(lblTitulo, BorderLayout.NORTH);
         
         JPanel panelBotones = new JPanel(new GridLayout(4, 1, 10, 10));
-        panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 40));
+        panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 40, 15, 40));
         panelBotones.setBackground(ColoresGui.colorFondo);
         
         JButton btnCatalogo = crearBoton("Catalogo y Listados");
         JButton btnRegistrar = crearBoton("Registrar Productos");
         JButton btnPrestamos = crearBoton("Prestamos y Devoluciones");
         JButton btnSalir = crearBoton("Guardar y Salir");
+        
+        btnCatalogo.addActionListener(e ->{
+            dispose();
+        });
+        
+        btnRegistrar.addActionListener(e ->{
+            dispose();
+            new RegistroProductos(gestion).mostrar();
+        });
+        
+        btnPrestamos.addActionListener(e ->{
+            dispose();
+        });
         
         btnSalir.addActionListener(e ->{
             int r = JOptionPane.showConfirmDialog(
@@ -49,6 +63,11 @@ public class InicioVista extends BaseFrame {
         panelBotones.add(btnSalir);
         
         add(panelBotones, BorderLayout.CENTER);
+        
+        revalidate();
+        repaint();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
     
     private JButton crearBoton(String texto){
@@ -59,11 +78,5 @@ public class InicioVista extends BaseFrame {
         btn.setOpaque(true);
         btn.setBorderPainted(false);
         return btn;
-    }
-    
-    @Override
-    public void mostrar(){
-        setLocationRelativeTo(null);
-        setVisible(true);
     }
 }
