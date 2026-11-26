@@ -195,6 +195,11 @@ public class Gestion_Biblioteca {
     public ArrayList<Prestamo> getListaPrestamos() {
         return listaPrestamos;
     }
+
+    public HashMap<String, Cliente> getListaClientes() {
+        return listaClientes;
+    }
+    
     
    //Requisito: Percistencia
     public void guardar(){

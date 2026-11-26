@@ -35,7 +35,7 @@ public class InicioVista extends BaseFrame {
         
         btnCatalogo.addActionListener(e ->{
             dispose();
-            new CatalogoVista(gestion).mostrar();
+            new InformacionVista(gestion).mostrar();
         });
         
         btnRegistrar.addActionListener(e ->{
@@ -45,6 +45,7 @@ public class InicioVista extends BaseFrame {
         
         btnPrestamos.addActionListener(e ->{
             dispose();
+            new PrestamoVista(gestion).mostrar();
             
         });
         
